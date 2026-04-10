@@ -18,7 +18,7 @@
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square&logo=node.js&logoColor=white" alt="Node" />
   <img src="https://img.shields.io/badge/tools-20-blue?style=flat-square" alt="Tools" />
   <img src="https://img.shields.io/badge/skills-20-blue?style=flat-square" alt="Skills" />
-  <img src="https://img.shields.io/badge/tests-106%20passing-brightgreen?style=flat-square" alt="Tests" />
+  <img src="https://img.shields.io/badge/tests-140%20passing-brightgreen?style=flat-square" alt="Tests" />
   <img src="https://img.shields.io/badge/SEO-Yoast%20%7C%20RankMath%20%7C%20AIOSEO-orange?style=flat-square" alt="SEO Plugins" />
 </p>
 

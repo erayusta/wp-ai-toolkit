@@ -32,10 +32,14 @@ export const publishToWordPressSchema = z.object({
   tags: z.array(z.number()).optional().describe("Tag IDs."),
   featuredImageId: z.number().optional().describe("Featured image (attachment) ID."),
   author: z.number().optional().describe("Author user ID."),
-  // Yoast SEO fields
-  yoastTitle: z.string().optional().describe("Yoast SEO title (meta title)."),
-  yoastDescription: z.string().optional().describe("Yoast SEO meta description."),
-  yoastFocusKeyword: z.string().optional().describe("Yoast focus keyword."),
+  // SEO fields (works with Yoast, Rank Math, AIOSEO via wp-ai-toolkit-seo-rest.php MU-plugin)
+  seoTitle: z.string().optional().describe("SEO title (meta title). Works with Yoast, Rank Math, and AIOSEO."),
+  seoDescription: z.string().optional().describe("SEO meta description."),
+  seoFocusKeyword: z.string().optional().describe("Focus keyword / keyphrase."),
+  seoCanonicalUrl: z.string().optional().describe("Canonical URL override."),
+  ogTitle: z.string().optional().describe("Open Graph title for social sharing."),
+  ogDescription: z.string().optional().describe("Open Graph description."),
+  ogImage: z.string().optional().describe("Open Graph image URL."),
   // Authentication
   username: z.string().optional().describe("WordPress username for Basic Auth."),
   applicationPassword: z.string().optional().describe("WordPress Application Password for auth."),
@@ -51,7 +55,8 @@ export async function publishToWordPress(input: PublishToWordPressInput): Promis
     const {
       siteUrl, title, content, status, postType, excerpt, slug,
       categories, tags, featuredImageId, author, postId,
-      yoastTitle, yoastDescription, yoastFocusKeyword,
+      seoTitle, seoDescription, seoFocusKeyword, seoCanonicalUrl,
+      ogTitle, ogDescription, ogImage,
       username, applicationPassword,
     } = input;
 
@@ -78,14 +83,19 @@ export async function publishToWordPress(input: PublishToWordPressInput): Promis
     if (featuredImageId) postData.featured_media = featuredImageId;
     if (author) postData.author = author;
 
-    // Yoast SEO metadata (requires Yoast REST API plugin or our MU-plugin)
-    const meta: Record<string, string> = {};
-    if (yoastTitle) meta._yoast_wpseo_title = yoastTitle;
-    if (yoastDescription) meta._yoast_wpseo_metadesc = yoastDescription;
-    if (yoastFocusKeyword) meta._yoast_wpseo_focuskw = yoastFocusKeyword;
+    // SEO metadata (works with unified wp-ai-toolkit-seo-rest.php MU-plugin)
+    // Supports Yoast, Rank Math, and AIOSEO through a unified "seo" REST field
+    const seoData: Record<string, string> = {};
+    if (seoTitle) seoData.seo_title = seoTitle;
+    if (seoDescription) seoData.meta_description = seoDescription;
+    if (seoFocusKeyword) seoData.focus_keyword = seoFocusKeyword;
+    if (seoCanonicalUrl) seoData.canonical_url = seoCanonicalUrl;
+    if (ogTitle) seoData.og_title = ogTitle;
+    if (ogDescription) seoData.og_description = ogDescription;
+    if (ogImage) seoData.og_image = ogImage;
 
-    if (Object.keys(meta).length > 0) {
-      postData.meta = meta;
+    if (Object.keys(seoData).length > 0) {
+      postData.seo = seoData;
     }
 
     // Build headers
@@ -151,13 +161,15 @@ export async function publishToWordPress(input: PublishToWordPressInput): Promis
 
       const action = postId ? "Updated" : "Created";
 
-      let yoastInfo = "";
-      if (yoastTitle || yoastDescription || yoastFocusKeyword) {
-        yoastInfo = `\n## Yoast SEO Metadata\n`;
-        if (yoastTitle) yoastInfo += `- **SEO Title**: ${yoastTitle}\n`;
-        if (yoastDescription) yoastInfo += `- **Meta Description**: ${yoastDescription}\n`;
-        if (yoastFocusKeyword) yoastInfo += `- **Focus Keyword**: ${yoastFocusKeyword}\n`;
-        yoastInfo += `\n> Note: Yoast fields require the seo-machine-yoast-rest.php MU-plugin to be installed.\n> See \`wordpress/\` directory in the toolkit.\n`;
+      let seoInfo = "";
+      if (Object.keys(seoData).length > 0) {
+        seoInfo = `\n## SEO Metadata\n`;
+        if (seoTitle) seoInfo += `- **SEO Title**: ${seoTitle}\n`;
+        if (seoDescription) seoInfo += `- **Meta Description**: ${seoDescription}\n`;
+        if (seoFocusKeyword) seoInfo += `- **Focus Keyword**: ${seoFocusKeyword}\n`;
+        if (seoCanonicalUrl) seoInfo += `- **Canonical URL**: ${seoCanonicalUrl}\n`;
+        if (ogTitle) seoInfo += `- **OG Title**: ${ogTitle}\n`;
+        seoInfo += `\n> Requires the wp-ai-toolkit-seo-rest.php MU-plugin.\n> Supports Yoast, Rank Math, and All in One SEO.\n> See \`wordpress/\` directory in the toolkit.\n`;
       }
 
       return successResponse(
@@ -167,7 +179,7 @@ export async function publishToWordPress(input: PublishToWordPressInput): Promis
         `**URL**: ${resultLink}\n` +
         `**Action**: ${action}\n` +
         `**Type**: ${postType}\n` +
-        yoastInfo +
+        seoInfo +
         `\n---\n\n` +
         (resultStatus === "draft"
           ? `Post saved as draft. Preview it in WordPress admin or change status to 'publish' to make it live.`

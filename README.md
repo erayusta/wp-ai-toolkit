@@ -18,7 +18,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square&logo=node.js&logoColor=white" alt="Node" />
   <img src="https://img.shields.io/badge/tools-23-0969DA?style=flat-square" alt="Tools" />
-  <img src="https://img.shields.io/badge/skills-30-0969DA?style=flat-square" alt="Skills" />
+  <img src="https://img.shields.io/badge/skills-33-0969DA?style=flat-square" alt="Skills" />
   <img src="https://img.shields.io/badge/tests-140%20passing-2EA043?style=flat-square" alt="Tests" />
   <img src="https://img.shields.io/badge/CI-passing-2EA043?style=flat-square&logo=githubactions&logoColor=white" alt="CI" />
 </p>
@@ -175,7 +175,7 @@ The AI calls the right tools automatically.
 <sub>18 dev + 5 storefront</sub>
 </td>
 <td align="center" width="20%">
-<h3>30</h3>
+<h3>33</h3>
 <sub><strong>Agent Skills</strong></sub><br/>
 <sub>Deep WordPress expertise</sub>
 </td>
@@ -418,6 +418,7 @@ Deep expertise files that give AI agents WordPress superpowers.
 | **Testing** | `wp-testing` — PHPUnit, WP_UnitTestCase, wp-env |
 | **Standards** | `wp-coding-standards` — PHPCS, WPCS, pre-commit |
 | **Database** | `wp-database` — custom tables, dbDelta, optimization |
+| **Plugin Dev** | `wp-plugin-development` — OOP, autoloading, WP.org |
 
 </td>
 <td width="33%" valign="top">
@@ -454,6 +455,8 @@ Deep expertise files that give AI agents WordPress superpowers.
 | **Media** | `wp-media-management` — images, WebP, SVG, CDN |
 | **Themes** | `wp-popular-themes` — Astra, GeneratePress, OceanWP |
 | **i18n** | `wp-multilingual` — WPML, Polylang, hreflang |
+| **Blog** | `wp-blogging` — posts, editorial, RSS, comments |
+| **E-Com+** | `wp-ecommerce-advanced` — subscriptions, marketplace |
 
 </td>
 </tr>

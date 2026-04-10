@@ -13,3 +13,7 @@ export { validateThemeTemplateSchema, validateThemeTemplate } from "./validate-t
 export { scaffoldComponentSchema, scaffoldComponent } from "./scaffold-component.js";
 export { analyzeThemeSchema, analyzeTheme } from "./analyze-theme.js";
 export { analyzePluginSchema, analyzePlugin } from "./analyze-plugin.js";
+export { analyzeContentSeoSchema, analyzeContentSeo } from "./analyze-content-seo.js";
+export { publishToWordPressSchema, publishToWordPress } from "./publish-to-wordpress.js";
+export { analyzeCompetitorsSchema, analyzeCompetitors } from "./analyze-competitors.js";
+export { scoreContentQualitySchema, scoreContentQuality } from "./score-content-quality.js";

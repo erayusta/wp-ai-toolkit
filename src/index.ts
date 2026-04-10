@@ -41,6 +41,14 @@ import {
   analyzeTheme,
   analyzePluginSchema,
   analyzePlugin,
+  analyzeContentSeoSchema,
+  analyzeContentSeo,
+  publishToWordPressSchema,
+  publishToWordPress,
+  analyzeCompetitorsSchema,
+  analyzeCompetitors,
+  scoreContentQualitySchema,
+  scoreContentQuality,
 } from "./tools/index.js";
 
 // ---------------------------------------------------------------------------
@@ -194,6 +202,54 @@ REST API permission callbacks, dangerous function usage.`,
   async (params) => {
     const input = analyzePluginSchema.parse(params);
     return analyzePlugin(input);
+  }
+);
+
+server.tool(
+  "analyze_content_seo",
+  `Analyze content for SEO quality: readability score, keyword density, heading structure,
+meta tag length, internal/external links, images, and overall SEO score (0-100).
+Provide targetKeyword for keyword analysis, metaTitle and metaDescription for meta tag validation.`,
+  analyzeContentSeoSchema.shape,
+  async (params) => {
+    const input = analyzeContentSeoSchema.parse(params);
+    return analyzeContentSeo(input);
+  }
+);
+
+server.tool(
+  "publish_to_wordpress",
+  `Publish or update content on WordPress via REST API.
+Supports posts, pages, and custom post types. Includes Yoast SEO metadata (title, description, focus keyword).
+Requires WordPress Application Password for authentication. Defaults to 'draft' status for safety.`,
+  publishToWordPressSchema.shape,
+  async (params) => {
+    const input = publishToWordPressSchema.parse(params);
+    return publishToWordPress(input);
+  }
+);
+
+server.tool(
+  "analyze_competitors",
+  `Analyze a competitor WordPress site: detect theme, plugins, technology stack,
+REST API endpoints, WooCommerce/Yoast/Elementor usage, and security indicators.
+Works by inspecting publicly accessible HTML and REST API discovery endpoint.`,
+  analyzeCompetitorsSchema.shape,
+  async (params) => {
+    const input = analyzeCompetitorsSchema.parse(params);
+    return analyzeCompetitors(input);
+  }
+);
+
+server.tool(
+  "score_content_quality",
+  `Score content quality across 5 dimensions: humanity (AI pattern detection),
+specificity (data/examples), structure (headings/lists), engagement (questions/pronouns),
+and completeness. Returns 0-100 score with detailed breakdown and recommendations.`,
+  scoreContentQualitySchema.shape,
+  async (params) => {
+    const input = scoreContentQualitySchema.parse(params);
+    return scoreContentQuality(input);
   }
 );
 

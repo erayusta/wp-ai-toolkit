@@ -28,9 +28,9 @@
 <p align="center">
   <a href="#-quick-start">Quick Start</a> &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#-architecture">Architecture</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#%EF%B8%8F-dev-server--15-tools">Dev Tools</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-dev-server--18-tools">Dev Tools</a> &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#-storefront-server--5-tools">Storefront</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-agent-skills--20">Skills</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-agent-skills--33">Skills</a> &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#-seo-plugins">SEO Plugins</a> &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#-mcp-configuration">Config</a>
 </p>
@@ -45,7 +45,7 @@
 
 WordPress powers **43% of the web** — but AI dev tools don't speak WordPress natively.
 
-This toolkit bridges that gap with **20 tools**, **20 skills**, and **universal SEO plugin support**:
+This toolkit bridges that gap with **23 tools**, **33 skills**, and **universal SEO plugin support**:
 
 <table>
 <tr>
@@ -145,7 +145,7 @@ The AI calls the right tools automatically.
    │                                     │    └─────────────────────────────┘
    │  ACTIONS                            │
    │  ├── manage_wp_site                 │    ┌─────────────────────────────┐
-   │  ├── scaffold_component             │    │      20 Agent Skills        │
+   │  ├── scaffold_component             │    │      33 Agent Skills        │
    │  └── publish_to_wordpress           │    ╞═════════════════════════════╡
    │                                     │    │  REST API · Hooks · Blocks  │
    └─────────────────────────────────────┘    │  Themes · Plugins · WooC    │
@@ -155,7 +155,12 @@ The AI calls the right tools automatically.
                                               │  Admin UI · Cron · SEO      │
                                               │  Migrations · Copywriting   │
                                               │  Content Strategy · CRO     │
-                                              │  Analytics & Tracking       │
+                                              │  Analytics · Forms · Media  │
+                                              │  Email · Debug · Backup     │
+                                              │  Database · Testing · PHPCS │
+                                              │  Blogging · E-Commerce+     │
+                                              │  Plugin Dev · Multilingual  │
+                                              │  Popular Themes             │
                                               └─────────────────────────────┘
 ```
 
@@ -223,7 +228,7 @@ cd wp-ai-toolkit && npm install && npm run build
 
 <br/>
 
-## Dev Server — 15 Tools
+## Dev Server — 18 Tools
 
 <table>
 <tr><td width="50%" valign="top">
@@ -396,7 +401,7 @@ claude mcp add wp-storefront node dist/storefront.js
 
 <br/>
 
-## Agent Skills — 20
+## Agent Skills — 33
 
 Deep expertise files that give AI agents WordPress superpowers.
 
@@ -789,6 +794,9 @@ Uses the `gemini-extension.json` file in the package root.
 | `validate_theme_template` | `code`, `templateType`, `themeType` |
 | `analyze_theme` | `themePath` |
 | `analyze_plugin` | `pluginPath` |
+| `analyze_database` | `wpPath` |
+| `debug_wordpress` | `wpPath`, `action` (status/errors/config/health/conflicts) |
+| `check_site_health` | `wpPath` |
 | `manage_wp_site` | `command`, `wpPath`, `format` |
 
 **Storefront Server:**
@@ -841,7 +849,7 @@ wp-ai-toolkit/
 │   ├── storefront.ts                  # Storefront MCP server (5 tools)
 │   ├── types.ts                       # Shared type definitions
 │   │
-│   ├── tools/                         # 15 tool implementations
+│   ├── tools/                         # 18 tool implementations
 │   │   ├── learn-wordpress-api.ts     #   Session bootstrap
 │   │   ├── search-docs.ts            #   Documentation search
 │   │   ├── fetch-full-docs.ts        #   Full page retrieval
@@ -856,7 +864,10 @@ wp-ai-toolkit/
 │   │   ├── analyze-content-seo.ts    #   SEO content analysis
 │   │   ├── analyze-competitors.ts    #   Competitor detection
 │   │   ├── publish-to-wordpress.ts   #   REST publishing + SEO
-│   │   └── score-content-quality.ts  #   Quality scoring
+│   │   ├── score-content-quality.ts  #   Quality scoring
+│   │   ├── debug-wordpress.ts        #   Debug log & diagnostics
+│   │   ├── check-site-health.ts      #   Site health score
+│   │   └── analyze-database.ts       #   Database analysis
 │   │
 │   ├── data/                          # Built-in reference data
 │   │   ├── wp-api-descriptions.ts    #   API domain descriptions
@@ -868,7 +879,7 @@ wp-ai-toolkit/
 │       ├── http.ts                    # HTTP client
 │       └── logger.ts                  # Structured logging
 │
-├── skills/                            # 20 agent skill files (markdown)
+├── skills/                            # 33 agent skill files (markdown + README each)
 │
 ├── wordpress/                         # SEO REST API MU-plugins
 │   ├── wp-ai-toolkit-seo-rest.php    #   Universal (auto-detect)
@@ -877,8 +888,8 @@ wp-ai-toolkit/
 │   └── seo-machine-yoast-rest.php
 │
 ├── tests/                             # 140 tests (Vitest)
-│   ├── tools/                        #   14 tool test files
-│   └── utils/                        #   2 util test files
+│   ├── tools/                        #   14 tool test files (140 tests)
+│   └── utils/                        #   2 utility test files
 │
 ├── examples/                          # MCP config examples
 ├── scripts/                           # Setup & install scripts

@@ -49,7 +49,8 @@ export async function searchDocs(input: SearchDocsInput): Promise<ToolResponse> 
   try {
     requireConversation(input.conversationId);
 
-    const { query, category, limit } = input;
+    const { query, category } = input;
+    const limit = input.limit ?? 5;
     logger.info("search_docs called", { query, category, limit });
 
     const chunks: DocChunk[] = [];

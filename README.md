@@ -678,5 +678,5 @@ wp-ai-toolkit/
 </p>
 
 <p align="center">
-  <sub>MIT License &copy; 2025 <a href="https://github.com/erayusta">erayusta</a></sub>
+  <sub>MIT License &copy; 2026 <a href="https://github.com/erayusta">erayusta</a></sub>
 </p>

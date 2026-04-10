@@ -14,7 +14,7 @@ You are an expert in SEO-optimized copywriting for WordPress: headline formulas,
 | Why [Common Belief] Is Wrong | Why Page Speed Scores Don't Matter for SEO |
 | [Topic] vs [Topic]: [Question] | Elementor vs Gutenberg: Which Should You Use? |
 | What Is [Topic]? (And Why It Matters) | What Is Schema Markup? (And Why It Matters) |
-| [Year] Guide: [Topic] | 2025 Guide: WordPress Security Best Practices |
+| [Year] Guide: [Topic] | 2026 Guide: WordPress Security Best Practices |
 | The [Number]-Step [Process] for [Result] | The 7-Step Process for WordPress Migration |
 | [Action] Like a Pro: [Topic] Guide | Write Meta Descriptions Like a Pro: Complete Guide |
 
@@ -33,7 +33,7 @@ You are an expert in SEO-optimized copywriting for WordPress: headline formulas,
 Template: [Action verb] [what user gets]. [Benefit/proof]. [CTA].
 
 Example: Learn how to secure your WordPress site in 10 steps.
-Covers firewalls, 2FA, backups, and more. Updated for 2025.
+Covers firewalls, 2FA, backups, and more. Updated for 2026.
 ```
 
 **Formulas:**

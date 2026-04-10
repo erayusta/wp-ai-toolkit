@@ -148,7 +148,7 @@ add_action('wp_footer', function () {
 https://example.com/landing-page/
   ?utm_source=facebook
   &utm_medium=paid
-  &utm_campaign=black_friday_2025
+  &utm_campaign=black_friday_2026
   &utm_content=carousel_ad_v2
 ```
 

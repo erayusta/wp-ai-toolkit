@@ -237,18 +237,18 @@ cd wp-ai-toolkit && npm install && npm run build
 
 | Tool | Description |
 |:-----|:------------|
-| `learn_wordpress_api` | **Start here** — creates session, loads context |
-| `search_docs` | Search developer.wordpress.org |
-| `fetch_full_docs` | Full doc page as markdown |
-| `introspect_rest_api` | Explore REST endpoints + live discovery |
+| [`learn_wordpress_api`](src/tools/learn-wordpress-api.ts) | **Start here** — creates session, loads context |
+| [`search_docs`](src/tools/search-docs.ts) | Search developer.wordpress.org |
+| [`fetch_full_docs`](src/tools/fetch-full-docs.ts) | Full doc page as markdown |
+| [`introspect_rest_api`](src/tools/introspect-rest-api.ts) | Explore REST endpoints + live discovery |
 
 ### Validation
 
 | Tool | Description |
 |:-----|:------------|
-| `validate_php` | Hooks, security, deprecated, anti-patterns |
-| `validate_block_json` | block.json / theme.json schema checks |
-| `validate_theme_template` | Template hierarchy, escaping, The Loop |
+| [`validate_php`](src/tools/validate-php.ts) | Hooks, security, deprecated, anti-patterns |
+| [`validate_block_json`](src/tools/validate-block-json.ts) | block.json / theme.json schema checks |
+| [`validate_theme_template`](src/tools/validate-theme-template.ts) | Template hierarchy, escaping, The Loop |
 
 </td><td valign="top">
 
@@ -256,27 +256,29 @@ cd wp-ai-toolkit && npm install && npm run build
 
 | Tool | Description |
 |:-----|:------------|
-| `analyze_theme` | Full theme directory audit |
-| `analyze_plugin` | Full plugin directory audit |
-| `analyze_content_seo` | Readability, keyword density, SEO score |
-| `analyze_competitors` | Detect theme/plugins/tech of any WP site |
-| `score_content_quality` | 5-dimension score + AI pattern detection |
-| `analyze_database` | Table sizes, bloat, orphaned data, cleanup |
+| [`analyze_theme`](src/tools/analyze-theme.ts) | Full theme directory audit |
+| [`analyze_plugin`](src/tools/analyze-plugin.ts) | Full plugin directory audit |
+| [`analyze_content_seo`](src/tools/analyze-content-seo.ts) | Readability, keyword density, SEO score |
+| [`analyze_competitors`](src/tools/analyze-competitors.ts) | Detect theme/plugins/tech of any WP site |
+| [`score_content_quality`](src/tools/score-content-quality.ts) | 5-dimension score + AI pattern detection |
+| [`analyze_database`](src/tools/analyze-database.ts) | Table sizes, bloat, orphaned data, cleanup |
 
 ### Diagnostics
 
 | Tool | Description |
 |:-----|:------------|
-| `debug_wordpress` | Debug log, config constants, checksums, conflicts |
-| `check_site_health` | Health score: PHP, DB, updates, SSL, cron |
+| [`debug_wordpress`](src/tools/debug-wordpress.ts) | Debug log, config constants, checksums, conflicts |
+| [`check_site_health`](src/tools/check-site-health.ts) | Health score: PHP, DB, updates, SSL, cron |
 
 ### Actions
 
 | Tool | Description |
 |:-----|:------------|
-| `manage_wp_site` | WP-CLI commands with safety checks |
-| `scaffold_component` | Generate 13 component types |
-| `publish_to_wordpress` | Publish with Yoast/RankMath/AIOSEO metadata |
+| [`manage_wp_site`](src/tools/manage-wp-site.ts) | WP-CLI commands with safety checks |
+| [`scaffold_component`](src/tools/scaffold-component.ts) | Generate 13 component types |
+| [`publish_to_wordpress`](src/tools/publish-to-wordpress.ts) | Publish with Yoast/RankMath/AIOSEO metadata |
+
+> See [`src/tools/README.md`](src/tools/README.md) for full tool reference with example calls.
 
 </td></tr>
 </table>
@@ -385,11 +387,11 @@ WooCommerce store operations via REST API.
 
 | Tool | Description |
 |:-----|:------------|
-| `search_products` | Search with filters (category, price range, stock) |
-| `get_product_details` | Full product data by ID or slug |
-| `get_orders` | Order listing with status filters |
-| `get_store_info` | Settings, payment gateways, shipping zones |
-| `get_store_stats` | Sales totals, top sellers, order counts |
+| [`search_products`](src/storefront.ts) | Search with filters (category, price range, stock) |
+| [`get_product_details`](src/storefront.ts) | Full product data by ID or slug |
+| [`get_orders`](src/storefront.ts) | Order listing with status filters |
+| [`get_store_info`](src/storefront.ts) | Store settings, payment gateways, shipping zones |
+| [`get_store_stats`](src/storefront.ts) | Sales totals, top sellers, order counts |
 
 ```bash
 claude mcp add wp-storefront node dist/storefront.js
@@ -413,17 +415,17 @@ Deep expertise files that give AI agents WordPress superpowers.
 
 | | Skill |
 |:--|:------|
-| **API** | `wp-rest-api` — endpoints, auth, custom routes |
-| **Hooks** | `wp-hooks` — actions, filters, priority |
-| **Blocks** | `wp-blocks` — block.json, attributes, supports |
-| **React** | `wp-gutenberg-components` — RichText, InnerBlocks |
-| **Fields** | `wp-custom-fields` — ACF, CMB2, meta API |
-| **Plugins** | `wp-plugins` — headers, settings, CPTs, AJAX |
-| **Themes** | `wp-themes` — block vs classic, FSE, theme.json |
-| **Testing** | `wp-testing` — PHPUnit, WP_UnitTestCase, wp-env |
-| **Standards** | `wp-coding-standards` — PHPCS, WPCS, pre-commit |
-| **Database** | `wp-database` — custom tables, dbDelta, optimization |
-| **Plugin Dev** | `wp-plugin-development` — OOP, autoloading, WP.org |
+| **API** | [`wp-rest-api`](skills/wp-rest-api/) — endpoints, auth, custom routes |
+| **Hooks** | [`wp-hooks`](skills/wp-hooks/) — actions, filters, priority |
+| **Blocks** | [`wp-blocks`](skills/wp-blocks/) — block.json, attributes, supports |
+| **React** | [`wp-gutenberg-components`](skills/wp-gutenberg-components/) — RichText, InnerBlocks |
+| **Fields** | [`wp-custom-fields`](skills/wp-custom-fields/) — ACF, CMB2, meta API |
+| **Plugins** | [`wp-plugins`](skills/wp-plugins/) — headers, settings, CPTs, AJAX |
+| **Themes** | [`wp-themes`](skills/wp-themes/) — block vs classic, FSE, theme.json |
+| **Testing** | [`wp-testing`](skills/wp-testing/) — PHPUnit, WP_UnitTestCase, wp-env |
+| **Standards** | [`wp-coding-standards`](skills/wp-coding-standards/) — PHPCS, WPCS, pre-commit |
+| **Database** | [`wp-database`](skills/wp-database/) — custom tables, dbDelta, optimization |
+| **Plugin Dev** | [`wp-plugin-development`](skills/wp-plugin-development/) — OOP, autoloading, WP.org |
 
 </td>
 <td width="33%" valign="top">
@@ -432,16 +434,16 @@ Deep expertise files that give AI agents WordPress superpowers.
 
 | | Skill |
 |:--|:------|
-| **Security** | `wp-security` — escaping, nonces, roles |
-| **Speed** | `wp-performance` — caching, query optimization |
-| **Network** | `wp-multisite` — network admin, shared tables |
-| **Jobs** | `wp-cron-background` — WP-Cron, Action Scheduler |
-| **Admin** | `wp-admin-ui` — meta boxes, list tables |
-| **Builders** | `wp-page-builders` — Elementor, Divi, Beaver |
-| **Deploy** | `wp-migrations-deploy` — DB migrations, Bedrock |
-| **Debug** | `wp-debugging` — WP_DEBUG, Query Monitor, errors |
-| **Backup** | `wp-backups-recovery` — UpdraftPlus, disaster recovery |
-| **Email** | `wp-email-transactional` — wp_mail, SMTP, templates |
+| **Security** | [`wp-security`](skills/wp-security/) — escaping, nonces, roles |
+| **Speed** | [`wp-performance`](skills/wp-performance/) — caching, query optimization |
+| **Network** | [`wp-multisite`](skills/wp-multisite/) — network admin, shared tables |
+| **Jobs** | [`wp-cron-background`](skills/wp-cron-background/) — WP-Cron, Action Scheduler |
+| **Admin** | [`wp-admin-ui`](skills/wp-admin-ui/) — meta boxes, list tables |
+| **Builders** | [`wp-page-builders`](skills/wp-page-builders/) — Elementor, Divi, Beaver |
+| **Deploy** | [`wp-migrations-deploy`](skills/wp-migrations-deploy/) — DB migrations, Bedrock |
+| **Debug** | [`wp-debugging`](skills/wp-debugging/) — WP_DEBUG, Query Monitor, errors |
+| **Backup** | [`wp-backups-recovery`](skills/wp-backups-recovery/) — UpdraftPlus, disaster recovery |
+| **Email** | [`wp-email-transactional`](skills/wp-email-transactional/) — wp_mail, SMTP, templates |
 
 </td>
 <td width="34%" valign="top">
@@ -450,18 +452,18 @@ Deep expertise files that give AI agents WordPress superpowers.
 
 | | Skill |
 |:--|:------|
-| **Commerce** | `wp-woocommerce` — products, gateways, HPOS |
-| **SEO** | `wp-seo-schema` — JSON-LD, Yoast, RankMath |
-| **Strategy** | `wp-content-strategy` — topic clusters, calendars |
-| **Writing** | `wp-copywriting` — headlines, meta, snippets |
-| **CRO** | `wp-cro-optimization` — landing pages, A/B, forms |
-| **Analytics** | `wp-analytics-tracking` — GA4, GTM, GSC, UTM |
-| **Forms** | `wp-forms` — CF7, WPForms, Gravity Forms |
-| **Media** | `wp-media-management` — images, WebP, SVG, CDN |
-| **Themes** | `wp-popular-themes` — Astra, GeneratePress, OceanWP |
-| **i18n** | `wp-multilingual` — WPML, Polylang, hreflang |
-| **Blog** | `wp-blogging` — posts, editorial, RSS, comments |
-| **E-Com+** | `wp-ecommerce-advanced` — subscriptions, marketplace |
+| **Commerce** | [`wp-woocommerce`](skills/wp-woocommerce/) — products, gateways, HPOS |
+| **SEO** | [`wp-seo-schema`](skills/wp-seo-schema/) — JSON-LD, Yoast, RankMath |
+| **Strategy** | [`wp-content-strategy`](skills/wp-content-strategy/) — topic clusters, calendars |
+| **Writing** | [`wp-copywriting`](skills/wp-copywriting/) — headlines, meta, snippets |
+| **CRO** | [`wp-cro-optimization`](skills/wp-cro-optimization/) — landing pages, A/B, forms |
+| **Analytics** | [`wp-analytics-tracking`](skills/wp-analytics-tracking/) — GA4, GTM, GSC, UTM |
+| **Forms** | [`wp-forms`](skills/wp-forms/) — CF7, WPForms, Gravity Forms |
+| **Media** | [`wp-media-management`](skills/wp-media-management/) — images, WebP, SVG, CDN |
+| **Themes** | [`wp-popular-themes`](skills/wp-popular-themes/) — Astra, GeneratePress, OceanWP |
+| **i18n** | [`wp-multilingual`](skills/wp-multilingual/) — WPML, Polylang, hreflang |
+| **Blog** | [`wp-blogging`](skills/wp-blogging/) — posts, editorial, RSS, comments |
+| **E-Com+** | [`wp-ecommerce-advanced`](skills/wp-ecommerce-advanced/) — subscriptions, marketplace |
 
 </td>
 </tr>
@@ -553,10 +555,12 @@ GET /wp-json/wp-ai-toolkit/v1/seo-status
 
 | File | SEO Plugin | Use Case |
 |:-----|:-----------|:---------|
-| `wp-ai-toolkit-seo-rest.php` | **Universal** (auto-detect) | Recommended for most sites |
-| `seo-machine-yoast-rest.php` | Yoast SEO only | Yoast-only environments |
-| `wp-ai-toolkit-rankmath-rest.php` | Rank Math only | RankMath-only environments |
-| `wp-ai-toolkit-aioseo-rest.php` | All in One SEO only | AIOSEO-only environments |
+| [`wp-ai-toolkit-seo-rest.php`](wordpress/wp-ai-toolkit-seo-rest.php) | **Universal** (auto-detect) | Recommended for most sites |
+| [`seo-machine-yoast-rest.php`](wordpress/seo-machine-yoast-rest.php) | Yoast SEO only | Yoast-only environments |
+| [`wp-ai-toolkit-rankmath-rest.php`](wordpress/wp-ai-toolkit-rankmath-rest.php) | Rank Math only | RankMath-only environments |
+| [`wp-ai-toolkit-aioseo-rest.php`](wordpress/wp-ai-toolkit-aioseo-rest.php) | All in One SEO only | AIOSEO-only environments |
+
+> See [`wordpress/README.md`](wordpress/README.md) for full SEO plugin documentation with field mapping and API examples.
 
 <br/>
 

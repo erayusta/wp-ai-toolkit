@@ -17,3 +17,6 @@ export { analyzeContentSeoSchema, analyzeContentSeo } from "./analyze-content-se
 export { publishToWordPressSchema, publishToWordPress } from "./publish-to-wordpress.js";
 export { analyzeCompetitorsSchema, analyzeCompetitors } from "./analyze-competitors.js";
 export { scoreContentQualitySchema, scoreContentQuality } from "./score-content-quality.js";
+export { debugWordPressSchema, debugWordPress } from "./debug-wordpress.js";
+export { checkSiteHealthSchema, checkSiteHealth } from "./check-site-health.js";
+export { analyzeDatabaseSchema, analyzeDatabase } from "./analyze-database.js";

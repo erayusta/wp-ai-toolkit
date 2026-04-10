@@ -49,6 +49,12 @@ import {
   analyzeCompetitors,
   scoreContentQualitySchema,
   scoreContentQuality,
+  debugWordPressSchema,
+  debugWordPress,
+  checkSiteHealthSchema,
+  checkSiteHealth,
+  analyzeDatabaseSchema,
+  analyzeDatabase,
 } from "./tools/index.js";
 
 // ---------------------------------------------------------------------------
@@ -250,6 +256,43 @@ and completeness. Returns 0-100 score with detailed breakdown and recommendation
   async (params) => {
     const input = scoreContentQualitySchema.parse(params);
     return scoreContentQuality(input);
+  }
+);
+
+server.tool(
+  "debug_wordpress",
+  `Debug and troubleshoot a WordPress installation.
+Actions: status (debug constants, PHP version, log size), errors (read debug.log),
+config (check wp-config.php constants), health (verify checksums, check DB, cron),
+conflicts (list plugins for conflict detection).`,
+  debugWordPressSchema.shape,
+  async (params) => {
+    const input = debugWordPressSchema.parse(params);
+    return debugWordPress(input);
+  }
+);
+
+server.tool(
+  "check_site_health",
+  `Comprehensive WordPress site health report.
+Checks: core integrity (verify-checksums), PHP version, database health, plugin/theme updates,
+WP-Cron, HTTPS, URL consistency, permalinks. Returns a 0-100 health score.`,
+  checkSiteHealthSchema.shape,
+  async (params) => {
+    const input = checkSiteHealthSchema.parse(params);
+    return checkSiteHealth(input);
+  }
+);
+
+server.tool(
+  "analyze_database",
+  `Analyze WordPress database health and bloat.
+Checks: table sizes, post revisions, orphaned postmeta, spam/trash comments,
+transients, autoloaded options size. Returns cleanup recommendations with commands.`,
+  analyzeDatabaseSchema.shape,
+  async (params) => {
+    const input = analyzeDatabaseSchema.parse(params);
+    return analyzeDatabase(input);
   }
 );
 

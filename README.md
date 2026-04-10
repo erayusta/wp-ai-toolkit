@@ -17,8 +17,8 @@
   <a href="https://www.npmjs.com/package/@erayusta/wp-ai-toolkit"><img src="https://img.shields.io/npm/v/@erayusta/wp-ai-toolkit?style=flat-square&color=CB3837&label=npm" alt="npm" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square&logo=node.js&logoColor=white" alt="Node" />
-  <img src="https://img.shields.io/badge/tools-20-0969DA?style=flat-square" alt="Tools" />
-  <img src="https://img.shields.io/badge/skills-20-0969DA?style=flat-square" alt="Skills" />
+  <img src="https://img.shields.io/badge/tools-23-0969DA?style=flat-square" alt="Tools" />
+  <img src="https://img.shields.io/badge/skills-30-0969DA?style=flat-square" alt="Skills" />
   <img src="https://img.shields.io/badge/tests-140%20passing-2EA043?style=flat-square" alt="Tests" />
   <img src="https://img.shields.io/badge/CI-passing-2EA043?style=flat-square&logo=githubactions&logoColor=white" alt="CI" />
 </p>
@@ -122,7 +122,7 @@ The AI calls the right tools automatically.
                             ▼
    ┌─────────────────────────────────────┐    ┌─────────────────────────────┐
    │       wp-ai-toolkit (Dev Server)    │    │  wp-storefront (Commerce)   │
-   │              15 tools               │    │          5 tools            │
+   │              18 tools               │    │          5 tools            │
    ╞═════════════════════════════════════╡    ╞═════════════════════════════╡
    │                                     │    │                             │
    │  DOCS & DISCOVERY                   │    │  search_products            │
@@ -170,12 +170,12 @@ The AI calls the right tools automatically.
 <table>
 <tr>
 <td align="center" width="20%">
-<h3>20</h3>
+<h3>23</h3>
 <sub><strong>MCP Tools</strong></sub><br/>
-<sub>15 dev + 5 storefront</sub>
+<sub>18 dev + 5 storefront</sub>
 </td>
 <td align="center" width="20%">
-<h3>20</h3>
+<h3>30</h3>
 <sub><strong>Agent Skills</strong></sub><br/>
 <sub>Deep WordPress expertise</sub>
 </td>
@@ -256,6 +256,14 @@ cd wp-ai-toolkit && npm install && npm run build
 | `analyze_content_seo` | Readability, keyword density, SEO score |
 | `analyze_competitors` | Detect theme/plugins/tech of any WP site |
 | `score_content_quality` | 5-dimension score + AI pattern detection |
+| `analyze_database` | Table sizes, bloat, orphaned data, cleanup |
+
+### Diagnostics
+
+| Tool | Description |
+|:-----|:------------|
+| `debug_wordpress` | Debug log, config constants, checksums, conflicts |
+| `check_site_health` | Health score: PHP, DB, updates, SSL, cron |
 
 ### Actions
 
@@ -407,6 +415,9 @@ Deep expertise files that give AI agents WordPress superpowers.
 | **Fields** | `wp-custom-fields` — ACF, CMB2, meta API |
 | **Plugins** | `wp-plugins` — headers, settings, CPTs, AJAX |
 | **Themes** | `wp-themes` — block vs classic, FSE, theme.json |
+| **Testing** | `wp-testing` — PHPUnit, WP_UnitTestCase, wp-env |
+| **Standards** | `wp-coding-standards` — PHPCS, WPCS, pre-commit |
+| **Database** | `wp-database` — custom tables, dbDelta, optimization |
 
 </td>
 <td width="33%" valign="top">
@@ -422,6 +433,9 @@ Deep expertise files that give AI agents WordPress superpowers.
 | **Admin** | `wp-admin-ui` — meta boxes, list tables |
 | **Builders** | `wp-page-builders` — Elementor, Divi, Beaver |
 | **Deploy** | `wp-migrations-deploy` — DB migrations, Bedrock |
+| **Debug** | `wp-debugging` — WP_DEBUG, Query Monitor, errors |
+| **Backup** | `wp-backups-recovery` — UpdraftPlus, disaster recovery |
+| **Email** | `wp-email-transactional` — wp_mail, SMTP, templates |
 
 </td>
 <td width="34%" valign="top">
@@ -436,6 +450,10 @@ Deep expertise files that give AI agents WordPress superpowers.
 | **Writing** | `wp-copywriting` — headlines, meta, snippets |
 | **CRO** | `wp-cro-optimization` — landing pages, A/B, forms |
 | **Analytics** | `wp-analytics-tracking` — GA4, GTM, GSC, UTM |
+| **Forms** | `wp-forms` — CF7, WPForms, Gravity Forms |
+| **Media** | `wp-media-management` — images, WebP, SVG, CDN |
+| **Themes** | `wp-popular-themes` — Astra, GeneratePress, OceanWP |
+| **i18n** | `wp-multilingual` — WPML, Polylang, hreflang |
 
 </td>
 </tr>
@@ -816,7 +834,7 @@ npm run typecheck    # tsc --noEmit
 wp-ai-toolkit/
 │
 ├── src/
-│   ├── index.ts                       # Dev MCP server (15 tools)
+│   ├── index.ts                       # Dev MCP server (18 tools)
 │   ├── storefront.ts                  # Storefront MCP server (5 tools)
 │   ├── types.ts                       # Shared type definitions
 │   │

@@ -162,7 +162,6 @@ export async function analyzePlugin(input: AnalyzePluginInput): Promise<ToolResp
     }
 
     // --- Security analysis across PHP files ---
-    let totalSecurityIssues = 0;
     let hasEscaping = false;
     let hasSanitization = false;
     let hasNonces = false;
@@ -189,7 +188,6 @@ export async function analyzePlugin(input: AnalyzePluginInput): Promise<ToolResp
       // Check for dangerous functions
       if (content.includes("eval(") || content.includes("eval (")) {
         items.push({ status: "fail", rule: "eval-usage", message: `eval() found in ${phpFile}. This is a security risk.` });
-        totalSecurityIssues++;
       }
       if (content.includes("extract(") || content.includes("extract (")) {
         items.push({ status: "warn", rule: "extract-usage", message: `extract() found in ${phpFile}. Makes debugging difficult.` });

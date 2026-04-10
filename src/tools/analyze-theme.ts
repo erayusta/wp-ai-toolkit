@@ -228,7 +228,6 @@ export async function analyzeTheme(input: AnalyzeThemeInput): Promise<ToolRespon
     // Check PHP files for common issues
     const phpFiles = allFiles.filter((f) => f.endsWith(".php"));
     let hasEscaping = false;
-    let hasDirectFileAccess = false;
 
     for (const phpFile of phpFiles.slice(0, 20)) { // Limit to first 20 files
       const content = readFile(themePath, phpFile);

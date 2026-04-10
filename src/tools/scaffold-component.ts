@@ -52,7 +52,7 @@ function toPascalCase(name: string): string {
 
 const SCAFFOLDS: Record<string, (input: ScaffoldComponentInput, slug: string, prefix: string, pascal: string) => string> = {
 
-  plugin: (input, slug, prefix, pascal) => `## Plugin: ${input.name}
+  plugin: (input, slug, prefix, _pascal) => `## Plugin: ${input.name}
 
 ### File: \`${slug}/${slug}.php\`
 \`\`\`php
@@ -126,7 +126,7 @@ ${slug}/
 └── readme.txt           # WordPress.org readme
 \`\`\``,
 
-  block: (input, slug, prefix, pascal) => `## Block: ${input.name}
+  block: (input, slug, prefix, _pascal) => `## Block: ${input.name}
 
 ### File: \`blocks/${slug}/block.json\`
 \`\`\`json
@@ -642,7 +642,7 @@ jQuery(function ($) {
 });
 \`\`\``,
 
-  theme: (input, slug, prefix) => `## Theme: ${input.name}
+  theme: (input, slug, _prefix) => `## Theme: ${input.name}
 
 ### File: \`${slug}/style.css\`
 \`\`\`css

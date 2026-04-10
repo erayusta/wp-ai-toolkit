@@ -51,7 +51,7 @@ const FULL_PAGE_TEMPLATES = [
   "author", "date", "search", "404", "front-page", "home",
 ];
 
-const ESCAPE_FUNCTIONS = [
+const _ESCAPE_FUNCTIONS = [
   "esc_html", "esc_attr", "esc_url", "esc_js", "esc_textarea",
   "wp_kses", "wp_kses_post", "wp_kses_data",
   "esc_html__", "esc_html_e", "esc_attr__", "esc_attr_e",

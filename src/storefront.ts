@@ -17,7 +17,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { logger } from "./utils/logger.js";
 import { fetchJson } from "./utils/http.js";
-import { successResponse, errorResponse, type ToolResponse } from "./types.js";
+import { successResponse, errorResponse } from "./types.js";
 
 const server = new McpServer({
   name: "wp-storefront",

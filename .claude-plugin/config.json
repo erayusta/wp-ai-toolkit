@@ -1,0 +1,29 @@
+{
+  "name": "wp-ai-toolkit",
+  "displayName": "WordPress AI Toolkit",
+  "description": "Connect Claude Code to WordPress: documentation search, REST API introspection, PHP validation, theme/plugin analysis, scaffolding, and WP-CLI.",
+  "mcpServers": {
+    "wp-ai-toolkit": {
+      "command": "npx",
+      "args": ["-y", "@erayusta/wp-ai-toolkit"]
+    }
+  },
+  "skills": [
+    "../skills/wp-rest-api",
+    "../skills/wp-hooks",
+    "../skills/wp-blocks",
+    "../skills/wp-themes",
+    "../skills/wp-plugins",
+    "../skills/wp-woocommerce",
+    "../skills/wp-gutenberg-components",
+    "../skills/wp-custom-fields",
+    "../skills/wp-security",
+    "../skills/wp-multisite",
+    "../skills/wp-page-builders",
+    "../skills/wp-performance",
+    "../skills/wp-admin-ui",
+    "../skills/wp-cron-background",
+    "../skills/wp-seo-schema",
+    "../skills/wp-migrations-deploy"
+  ]
+}

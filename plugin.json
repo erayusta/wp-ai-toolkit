@@ -1,0 +1,47 @@
+{
+  "name": "wp-ai-toolkit",
+  "displayName": "WordPress AI Toolkit",
+  "version": "1.0.0",
+  "description": "MCP Server that connects AI tools to the WordPress platform. Provides documentation search, REST API introspection, PHP/block validation, theme/plugin analysis, component scaffolding, and WP-CLI integration.",
+  "author": "erayusta",
+  "license": "MIT",
+  "homepage": "https://github.com/erayusta/wp-ai-toolkit",
+  "repository": "https://github.com/erayusta/wp-ai-toolkit",
+  "skills": [
+    "skills/wp-rest-api",
+    "skills/wp-hooks",
+    "skills/wp-blocks",
+    "skills/wp-themes",
+    "skills/wp-plugins",
+    "skills/wp-woocommerce",
+    "skills/wp-gutenberg-components",
+    "skills/wp-custom-fields",
+    "skills/wp-security",
+    "skills/wp-multisite",
+    "skills/wp-page-builders",
+    "skills/wp-performance",
+    "skills/wp-admin-ui",
+    "skills/wp-cron-background",
+    "skills/wp-seo-schema",
+    "skills/wp-migrations-deploy"
+  ],
+  "mcpServers": {
+    "wp-ai-toolkit": {
+      "command": "npx",
+      "args": ["-y", "@erayusta/wp-ai-toolkit"]
+    }
+  },
+  "tools": [
+    "learn_wordpress_api",
+    "search_docs",
+    "fetch_full_docs",
+    "introspect_rest_api",
+    "validate_php",
+    "validate_block_json",
+    "manage_wp_site",
+    "validate_theme_template",
+    "scaffold_component",
+    "analyze_theme",
+    "analyze_plugin"
+  ]
+}

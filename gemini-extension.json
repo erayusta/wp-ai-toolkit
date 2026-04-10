@@ -1,0 +1,11 @@
+{
+  "name": "wp-ai-toolkit",
+  "displayName": "WordPress AI Toolkit",
+  "description": "MCP Server for WordPress development: docs search, REST API introspection, PHP validation, theme/plugin analysis, scaffolding, WP-CLI.",
+  "mcpServers": {
+    "wp-ai-toolkit": {
+      "command": "npx",
+      "args": ["-y", "@erayusta/wp-ai-toolkit"]
+    }
+  }
+}

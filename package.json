@@ -1,0 +1,65 @@
+{
+  "name": "@erayusta/wp-ai-toolkit",
+  "version": "1.0.0",
+  "description": "WordPress AI Toolkit - MCP Server that connects AI tools to the WordPress platform. Provides documentation search, REST API introspection, PHP/block validation, WP-CLI integration, and agent skills.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "wp-ai-toolkit": "dist/index.js",
+    "wp-storefront": "dist/storefront.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "wordpress",
+    "mcp",
+    "ai-toolkit",
+    "model-context-protocol",
+    "wp-cli",
+    "gutenberg",
+    "rest-api",
+    "agent",
+    "ai",
+    "plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "node-fetch": "^3.3.2",
+    "uuid": "^10.0.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^9.25.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.58.1",
+    "vitest": "^3.1.2"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcp.servers": {
+    "wp-ai-toolkit": {
+      "command": "npx",
+      "args": ["-y", "@erayusta/wp-ai-toolkit"]
+    }
+  }
+}
